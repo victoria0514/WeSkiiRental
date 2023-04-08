@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import LoginForm from './components/LoginForm';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
-    <LoginForm />
+      <LoginForm />
     </div>
   );
 }
