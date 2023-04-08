@@ -2,17 +2,10 @@ import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import "./loginform.css";
 import logo from "../icons/WeSkiiLogo.png";
-import Landing from "./Landing";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const navigation = [
-    {
-      name: "Landing",
-      href: "/Landing",
-    },
-  ];
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
