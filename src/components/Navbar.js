@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart } from 'phosphor-react';
+import { ShoppingCart } from '@mui/icons-material';
 import './Navbar.css';
 
 function Navbar() {
