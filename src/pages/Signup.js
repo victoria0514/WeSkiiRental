@@ -1,21 +1,31 @@
-import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
+import React from 'react';
+import AccountInfo from '../components/AccountInfo';
+import Names from '../components/Names';
+import ContactInfo from '../components/ContactInfo';
 import logo from '../icons/WeSkiiLogo.png';
-import { useNavigate } from 'react-router-dom';
+import './Signup.css';
 
 const Signup = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  return (
+    <div>
+      <div className='Signup-Wrapper'>
+        <img
+          src={logo}
+          alt='logo'
+          className='logo'
+          style={{
+            width: '300px',
+            height: '300px',
+          }}
+        />
+        <h1>Signup Page</h1>
 
-  const handleLoginClick = () => { };
-
-  return(
-    <div> this is the signup page </div>
-  )
+        <Names />
+        <AccountInfo />
+        <ContactInfo />
+      </div>
+    </div>
+  );
 };
 
 export default Signup;
