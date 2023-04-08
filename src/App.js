@@ -8,8 +8,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<LoginForm />} />
-          <Route path='/landing' element={<Landing />} />
+          <Route path='/' element={<LoginForm />} exact />
+          <Route path='/landing' element={<Landing />} exact />
         </Routes>
       </BrowserRouter>
     </div>

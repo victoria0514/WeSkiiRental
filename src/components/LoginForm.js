@@ -1,38 +1,47 @@
-import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
-import './loginform.css';
-import logo from '../icons/WeSkiiLogo.png';
-import Landing from './Landing';
+import React, { useState } from "react";
+import { TextField, Button } from "@mui/material";
+import "./loginform.css";
+import logo from "../icons/WeSkiiLogo.png";
+import Landing from "./Landing";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const navigation = [
+    {
+      name: "Landing",
+      href: "/Landing",
+    },
+  ];
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLoginClick = () => {
-    if (username === 'admin' && password === 'admin') {
-      console.log('Login Successful');
+    if (username === "admin" && password === "admin") {
+      console.log("Login Successful");
+      navigate("/landing");
     }
   };
 
   return (
     <div>
-      <div className='LoginForm-Wrapper'>
+      <div className="LoginForm-Wrapper">
         <img
           src={logo}
-          alt='logo'
-          className='logo'
+          alt="logo"
+          className="logo"
           style={{
-            width: '300px',
-            height: '300px',
+            width: "300px",
+            height: "300px",
           }}
         />
 
         <h1> We Skii Rental </h1>
 
         <TextField
-          id='outlined-basic'
-          label='Username'
-          variant='outlined'
+          id="outlined-basic"
+          label="Username"
+          variant="outlined"
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);
@@ -40,10 +49,10 @@ const LoginForm = () => {
         />
 
         <TextField
-          id='outlined-basic'
-          label='Password'
-          variant='outlined'
-          type='password'
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+          type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
@@ -51,9 +60,9 @@ const LoginForm = () => {
         />
 
         <Button
-          style={{ width: '300px' }}
-          size='Large'
-          variant='contained'
+          style={{ width: "300px" }}
+          size="Large"
+          variant="contained"
           onClick={handleLoginClick}
         >
           Login
