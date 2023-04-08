@@ -1,37 +1,66 @@
-import React, { useState } from 'react'
-import './loginform.css'
+import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
+import './loginform.css';
+import logo from '../icons/WeSkiiLogo.png';
+import Landing from './Landing';
 
 const LoginForm = () => {
-  const [popupStyle, showPopup] = useState('hide')
-  const popup = () => {
-    showPopup('login-popup')
-    setTimeout(() => showPopup('hide'), 1500)
-  }
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-
+  const handleLoginClick = () => {
+    if (username === 'admin' && password === 'admin') {
+      console.log('Login Successful');
+    }
+  };
 
   return (
-    <div className='cover'>
-      <h1> We Skii Rental </h1>
-      <input type='text' placeholder='username' />
-      <input type='password' placeholder='password' />
-      <div className='login-btn' onClick={popup}>
-        Login{' '}
-      </div>
+    <div>
+      <div className='LoginForm-Wrapper'>
+        <img
+          src={logo}
+          alt='logo'
+          className='logo'
+          style={{
+            width: '300px',
+            height: '300px',
+          }}
+        />
 
-      <p className='text'> Or login using </p>
+        <h1> We Skii Rental </h1>
 
-      <div className='alt-login'>
-        <div className='facebook'> </div>
-        <div className='google'> </div>
-      </div>
+        <TextField
+          id='outlined-basic'
+          label='Username'
+          variant='outlined'
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
 
-      <div className={popupStyle}>
-        <h3> Login Failed</h3>
-        <p> Username or Password incorrect </p>
+        <TextField
+          id='outlined-basic'
+          label='Password'
+          variant='outlined'
+          type='password'
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+
+        <Button
+          style={{ width: '300px' }}
+          size='Large'
+          variant='contained'
+          onClick={handleLoginClick}
+        >
+          Login
+        </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
