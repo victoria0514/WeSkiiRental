@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from '@mui/icons-material';
 import icon from '../icons/WeSkiiLogo.png';
-import './Navbar.css';
+import './Styling/Navbar.css';
 
 function Navbar() {
   return (

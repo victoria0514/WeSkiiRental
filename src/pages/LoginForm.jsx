@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import './LoginForm.css';
+import './Styling/LoginForm.css';
 import logo from '../icons/WeSkiiLogo.png';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Title.css';
+import './Styling/Title.css';
 import { TextField } from '@mui/material';
 import Names from './Names';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import AccountInfo from '../components/AccountInfo';
 import AddressInfo from '../components/AddressInfo';
 import logo from '../icons/WeSkiiLogo.png';
-import './Signup.css';
+import './Styling/Signup.css';
 
 const Signup = () => {
   const styler = {
