@@ -1,11 +1,16 @@
 import React from 'react';
 import AccountInfo from '../components/AccountInfo';
-import Names from '../components/Names';
-import ContactInfo from '../components/ContactInfo';
+import AddressInfo from '../components/AddressInfo';
 import logo from '../icons/WeSkiiLogo.png';
 import './Signup.css';
 
 const Signup = () => {
+  const styler = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
   return (
     <div>
       <div className='Signup-Wrapper'>
@@ -19,10 +24,8 @@ const Signup = () => {
           }}
         />
         <h1>Signup Page</h1>
-
-        <Names />
-        <AccountInfo />
-        <ContactInfo />
+          <AccountInfo />
+          <AddressInfo />
       </div>
     </div>
   );
