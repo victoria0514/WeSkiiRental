@@ -62,6 +62,7 @@ const LoginForm = () => {
               width: '125px',
               marginRight: '12px',
               marginLeft: '12px',
+              marginTop: '12px',
             }}
             size='large'
             variant='contained'
@@ -75,6 +76,7 @@ const LoginForm = () => {
               width: '125px',
               marginRight: '12px',
               marginLeft: '12px',
+              marginTop: '12px',
             }}
             size='large'
             variant='contained'
