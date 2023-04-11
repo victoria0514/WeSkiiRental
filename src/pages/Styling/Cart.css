@@ -18,6 +18,10 @@
 
 .cartItem img {
   width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 2px solid black;
+  border-radius: 2;
 }
 
 .cartItem .description {
@@ -29,15 +33,4 @@
   width: 40px;
   text-align: center;
   font-weight: bolder;
-}
-
-.checkout button {
-  width: 150px;
-  height: 50px;
-  background-color: rgb(19, 19, 19);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin: 10px;
-  cursor: pointer;
 }
