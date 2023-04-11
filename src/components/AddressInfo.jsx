@@ -1,44 +1,47 @@
 import React, { useState } from 'react';
 import './Styling/Title.css';
 import { TextField } from '@mui/material';
-import Names from './Names';
+import './Styling/AddressInfo.css';
 
 const ContactInfo = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
 
-  const styler = {
-    width: '600px',
-    margin: '10px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
-
-  const inner = {
-    marginLeft: '10px',
-    marginRight: '10px',
-  };
-
   return (
     <>
       <h3 className='title'> Shipping Info </h3>
 
-      <div style={styler}>
-        <Names />
+      <div className='outer'>
+        <TextField
+          id='outlined-basic'
+          label='First Name'
+          variant='outlined'
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          className='inner'
+        />
+        <TextField
+          id='outlined-basic'
+          label='Last Name'
+          variant='outlined'
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          className='inner'
+        />
       </div>
 
-      <div style={styler}>
+      <div className='outer'>
         <TextField
           id='outlined-basic'
           label='Address'
           variant='outlined'
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          style={inner}
+          className='inner'
         />
 
         <TextField
@@ -47,18 +50,18 @@ const ContactInfo = () => {
           variant='outlined'
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          style={inner}
+          className='inner'
         />
       </div>
 
-      <div style={styler}>
+      <div className='outer'>
         <TextField
           id='outlined-basic'
           label='State'
           variant='outlined'
           value={state}
           onChange={(e) => setState(e.target.value)}
-          style={inner}
+          className='inner'
         />
 
         <TextField
@@ -67,7 +70,7 @@ const ContactInfo = () => {
           variant='outlined'
           value={zip}
           onChange={(e) => setZip(e.target.value)}
-          style={inner}
+          className='inner'
         />
       </div>
     </>

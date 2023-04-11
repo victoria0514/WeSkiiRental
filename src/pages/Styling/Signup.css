@@ -1,7 +1,15 @@
-.Signup-Wrapper {
+.Wrapper1 {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 0px;
+}
+
+.Wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
