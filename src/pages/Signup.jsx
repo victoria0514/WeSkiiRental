@@ -6,28 +6,38 @@ import './Styling/Signup.css';
 
 const Signup = () => {
   const styler = {
+    marginTop: '20px ',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  };
+
+  const imgStyle = {
+    width: '200px',
+    height: '200px',
+  };
+
+  const outer = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   };
   return (
-    <div>
-      <div className='Signup-Wrapper'>
-        <img
-          src={logo}
-          alt='logo'
-          className='logo'
-          style={{
-            width: '300px',
-            height: '300px',
-          }}
-        />
+    <>
+      <div style={outer}>
+        <img style={imgStyle} src={logo} alt='logo' className='logo'></img>
         <h1>Signup Page</h1>
-          <AccountInfo />
-          <AddressInfo />
       </div>
-    </div>
+      <div style={styler}>
+        <div>
+          <AccountInfo />
+        </div>
+        <div>
+          <AddressInfo />
+        </div>
+      </div>
+    </>
   );
 };
 
