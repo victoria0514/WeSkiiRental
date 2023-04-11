@@ -5,7 +5,9 @@ const Names = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const inner = { marginLeft: '10px', marginRight: '10px' };
+  const inner = { 
+    marginLeft: '10px', 
+    marginRight: '10px' };
   const outer = {
     width: '600px',
     height: '20px',
