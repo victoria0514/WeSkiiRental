@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Product } from '../components/Product';
 import { ShopContext } from '../context/ShopContext';
+import { CartItem } from '../components/CartItem';
 import { PRODUCTS } from '../Products';
+import './Styling/Cart.css'
 
 const Cart = () => {
   const { cartItems } = useContext(ShopContext);
