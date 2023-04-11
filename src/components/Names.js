@@ -13,6 +13,7 @@ const Names = () => {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    marginTop: '20px',
   };
 
   return (
