@@ -1,6 +1,7 @@
 import { Button, Input } from '@mui/material';
 import React, { useContext } from 'react';
 import { ShopContext } from '../context/ShopContext';
+import './Styling/CartItem.css';
 
 export const CartItem = (props) => {
   const { id, productName, price, productImage } = props.data;
@@ -27,7 +28,7 @@ export const CartItem = (props) => {
           </Button>
 
           <Input
-      size='small'
+            size='small'
             value={cartItems[id]}
             onChange={(e) => {
               updateItemCartAmount(Number(e.target.value), id);
