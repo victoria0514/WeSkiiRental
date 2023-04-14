@@ -5,24 +5,6 @@ import './Styling/Signup.css';
 import logo from '../icons/WeSkiiLogo.png';
 
 const Signup = () => {
-  // const styler = {
-  //   marginTop: '20px ',
-  //   display: 'flex',
-  //   flexDirection: 'row',
-  //   justifyContent: 'center',
-  // };
-
-  // const imgStyle = {
-  //   width: '200px',
-  //   height: '200px',
-  // };
-
-  // const outer = {
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // };
   return (
     <>
       <div className='Form-outer'>
