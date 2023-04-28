@@ -3,6 +3,9 @@ import { TextField, Button } from '@mui/material';
 import './Styling/LoginForm.css';
 import { useNavigate } from 'react-router-dom';
 import ShippingInfo from '../components/ShippingInfo';
+// import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+// import {auth} from '../firebase';
+
 
 const Account = () => {
   const navigate = useNavigate();
