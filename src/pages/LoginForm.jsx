@@ -26,6 +26,12 @@ const LoginForm = () => {
       sessionStorage.setItem('isLoggedIn', 'true');
       sessionStorage.setItem('username', 'admin');
       sessionStorage.setItem('password', 'admin');
+      sessionStorage.setItem('firstName', 'Morris');
+      sessionStorage.setItem('lastName', 'Admin');
+      sessionStorage.setItem('address', 'College of Staten Island');
+      sessionStorage.setItem('city', 'Staten Island');
+      sessionStorage.setItem('state', 'New York');
+      sessionStorage.setItem('zip', '10314');
       console.log('Login Successful');
       navigate('/');
     }
@@ -51,7 +57,7 @@ const LoginForm = () => {
           variant='outlined'
           value={username}
           onChange={(e) => {
-            setUsername(e.target.value);                                        
+            setUsername(e.target.value);
           }}
         />
 
