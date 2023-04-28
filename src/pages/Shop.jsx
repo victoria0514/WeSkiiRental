@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import './Styling/Shop.css'
+import React from 'react';
+import './Styling/Shop.css';
 import { Product } from '../components/Product';
 import { PRODUCTS } from '../Products';
 
 const Shop = () => {
+  let data = sessionStorage.getItem('isLoggedIn');
+
   return (
     <div className='shop'>
       <div className='shop-title'>
@@ -19,4 +21,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
