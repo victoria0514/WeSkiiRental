@@ -91,7 +91,6 @@ const Account = () => {
             <Button variant='contained' onClick={handleSignOut}>
               Sign Out
             </Button>
-            <Button variant='contained' onClick={handleDisplayInfo}> Display Info </Button>
 
           </div>
         </div>
