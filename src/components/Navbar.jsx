@@ -13,11 +13,11 @@ function Navbar() {
         </div>
 
         <div className='links'>
-          <Link to='/Login'> Login </Link>
+          <Link to='/Account'> Account </Link>
           <Link to='/'> Shop </Link>
           <Link to='/Cart'>
             <ShoppingCart size={24} weight='fill' color='white' />
-        </Link>
+          </Link>
         </div>
       </div>
     </>
