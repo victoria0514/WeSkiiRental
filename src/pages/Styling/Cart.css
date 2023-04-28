@@ -34,3 +34,34 @@
   text-align: center;
   font-weight: bolder;
 }
+
+.not-cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout button {
+  width: 200px;
+}
+
+.checkout{
+  display: flex;
+  justify-content: center;
+
+}
+
+.not-cart-items button {
+  width: 200px;
+  height: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+

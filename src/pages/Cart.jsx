@@ -11,16 +11,18 @@ const Cart = () => {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
   const { buyAmount, rentAmount } = getTotalCartAmount();
   const navigate = useNavigate();
-  const styles = {
-    display: 'flex',
-    justifyContent: 'center',
+
+  const handleBackToShop = () => {
+    navigate('/');
   };
 
-  const bttnStyle = {
-    width: '215px',
-    marginRight: '12px',
-    marginLeft: '12px',
+  const handleCheckout = () => {
+    let orderID = Math.random() * 100000000;
+    orderID = Math.floor(orderID);
+    alert(`Your order ID is ${orderID}`);
   };
+
+  const subtTotal = buyAmount;
 
   return (
     <div className='cart'>
@@ -33,10 +35,21 @@ const Cart = () => {
       </div>
 
       {buyAmount > 0 ? (
-        <div className='checkout'>
-          <h1 style={styles}> Your Cart Items </h1>
-          <p style={styles}>Subtotal ${buyAmount}</p>
-          <PaymentPage />
+        <div className='not-cart-items'>
+          <div className='subtotal'>
+            <h1>Checkout:</h1>
+            <Button variant='contained' onClick={handleCheckout}>
+              Buy Gear ${Math.round(buyAmount * 100 ) / 100 }
+            </Button>
+            <Button variant='contained' onClick={handleCheckout}>
+              Rent Gear ${Math.round(rentAmount * 100) / 100 }
+            </Button>
+          </div>
+          <div className='checkout'>
+            <Button variant='outlined' onClick={handleBackToShop}>
+             ← Back to Shop
+            </Button>
+          </div>
         </div>
       ) : (
         <h1> Your Cart is Empty! </h1>
