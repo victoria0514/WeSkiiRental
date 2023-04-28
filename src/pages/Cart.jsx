@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { CartItem } from '../components/CartItem';
-import { PRODUCTS } from '../Products';
+import { PRODUCTS } from '../data/Products';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import './Styling/Cart.css';
-import PayPalButton from '../components/PayPalButton';
 import PaymentPage from './Payment';
 
 const Cart = () => {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
-  const totalAmount = getTotalCartAmount();
+  const { buyAmount, rentAmount } = getTotalCartAmount();
   const navigate = useNavigate();
   const styles = {
     display: 'flex',
@@ -33,11 +32,11 @@ const Cart = () => {
         })}
       </div>
 
-      {totalAmount > 0 ? (
+      {buyAmount > 0 ? (
         <div className='checkout'>
           <h1 style={styles}> Your Cart Items </h1>
-          <p style={styles}>Subtotal ${totalAmount}</p>
-            <PaymentPage />
+          <p style={styles}>Subtotal ${buyAmount}</p>
+          <PaymentPage />
         </div>
       ) : (
         <h1> Your Cart is Empty! </h1>

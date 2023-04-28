@@ -1,10 +1,9 @@
 import React from 'react';
 import './Styling/Shop.css';
 import { Product } from '../components/Product';
-import { PRODUCTS } from '../Products';
+import { PRODUCTS } from '../data/Products';
 
 const Shop = () => {
-  let data = sessionStorage.getItem('isLoggedIn');
 
   return (
     <div className='shop'>

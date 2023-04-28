@@ -4,18 +4,18 @@ import { ShopContext } from '../context/ShopContext';
 import './Styling/CartItem.css';
 
 export const CartItem = (props) => {
-  const { id, productName, price, productImage } = props.data;
+  const { id, productName, priceBuy, priceRent, productImage } = props.data;
   const { cartItems, addToCart, removeFromCart, updateItemCartAmount } =
     useContext(ShopContext);
   return (
     <div className='cartItem'>
-      <img src={productImage} alt='product'/>
+      <img src={productImage} alt='product' />
       <div className='description'>
         <p>
           {' '}
           <b> {productName}</b>
         </p>
-        <p> ${price}</p>
+        <p> Buy ${priceBuy} | Rent ${priceRent}</p>
         <div className='countHandler'>
           <Button
             variant='outlined'
@@ -51,4 +51,3 @@ export const CartItem = (props) => {
     </div>
   );
 };
- 

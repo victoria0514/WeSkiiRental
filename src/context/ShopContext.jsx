@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { PRODUCTS } from '../Products';
+import { PRODUCTS } from '../data/Products';
 
 export const ShopContext = createContext(null);
 
@@ -15,14 +15,16 @@ export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   const getTotalCartAmount = () => {
-    let totalAmount = 0;
-    for (const item in cartItems) {
+    let buyAmount = 0;
+    let rentAmount = 0;
+    for (const item in cartItems) { 
       if (cartItems[item] > 0) {
         let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
-        totalAmount += cartItems[item] * itemInfo.price;
+        buyAmount += cartItems[item] * itemInfo.priceBuy;
+        rentAmount += cartItems[item] * itemInfo.priceRent;
       }
     }
-    return totalAmount;
+    return { buyAmount, rentAmount };
   };
 
   const addToCart = (itemId) => {
