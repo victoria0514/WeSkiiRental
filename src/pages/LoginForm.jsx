@@ -12,12 +12,23 @@ const LoginForm = () => {
   const handleLoginClick = () => {
     if (username === 'admin' && password === 'admin') {
       console.log('Login Successful');
-      navigate('/landing');
+      navigate('/');
     }
   };
 
   const handleSingupclick = () => {
     navigate('/signup');
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (username === 'admin' && password === 'admin') {
+      sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('username', 'admin');
+      sessionStorage.setItem('password', 'admin');
+      console.log('Login Successful');
+      navigate('/');
+    }
   };
 
   return (
@@ -34,28 +45,29 @@ const LoginForm = () => {
         />
 
         <h1> We Skii Rental </h1>
-
         <TextField
           id='outlined-basic'
           label='Username'
           variant='outlined'
           value={username}
           onChange={(e) => {
-            setUsername(e.target.value);
+            setUsername(e.target.value);                                        
           }}
         />
 
-        <TextField
-          id='outlined-basic'
-          label='Password'
-          variant='outlined'
-          type='password'
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-
+        <form onSubmit={handleFormSubmit}>
+          <TextField
+            id='outlined-basic'
+            label='Password'
+            variant='outlined'
+            type='password'
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            style={{ marginTop: '10px' }}
+          />
+        </form>
         <div className='buttons'>
           <Button
             style={{
