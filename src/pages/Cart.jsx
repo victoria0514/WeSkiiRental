@@ -5,6 +5,8 @@ import { PRODUCTS } from '../Products';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import './Styling/Cart.css';
+import PayPalButton from '../components/PayPalButton';
+import PaymentPage from './Payment';
 
 const Cart = () => {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
@@ -35,28 +37,13 @@ const Cart = () => {
         <div className='checkout'>
           <h1 style={styles}> Your Cart Items </h1>
           <p style={styles}>Subtotal ${totalAmount}</p>
-          <div className='buttons'>
-            <Button
-              style={bttnStyle}
-              variant='contained'
-              onClick={() => {
-                navigate('/');
-              }}
-            >
-              {' '}
-              Continue Shopping{' '}
-            </Button>
-            <Button style={bttnStyle} variant='contained'>
-              {' '}
-              Checkout{' '}
-            </Button>
-          </div>
+            <PaymentPage />
         </div>
       ) : (
         <h1> Your Cart is Empty! </h1>
       )}
     </div>
-  );  
+  );
 };
 
 export default Cart;
