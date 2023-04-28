@@ -5,6 +5,7 @@ import logo from '../icons/WeSkiiLogo.png';
 import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
+  const navigate = useNavigate();
   const isLoggedIn = sessionStorage.getItem('isLoggedIn');
   const password = sessionStorage.getItem('password');
   const [oldPassword, setOldPassword] = useState('');
@@ -18,6 +19,10 @@ const Account = () => {
       console.log('Password Incorrect');
       console.log(password);
     }
+  };
+
+  const handleLoginClick = () => {
+    navigate('/login');
   };
 
   return (
@@ -47,7 +52,12 @@ const Account = () => {
           </form>
         </div>
       ) : (
-        <h1> You are not logged in</h1>
+        <div>
+          <h1> You are not logged in</h1>
+          <Button variant='contained' onClick={handleLoginClick}>
+            Login
+          </Button>
+        </div>
       )}
     </div>
   );
