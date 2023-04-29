@@ -23,7 +23,7 @@ const Signup = () => {
           <AccountInfo />
         </div>
         <div>
-          <AddressInfo />
+          {/* <AddressInfo /> */}
         </div>
       </div>
     </>

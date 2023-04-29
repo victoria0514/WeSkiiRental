@@ -5,7 +5,7 @@ import logo from '../icons/WeSkiiLogo.png';
 import { useNavigate } from 'react-router-dom';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { auth } from '../firebase';
-const LoginForm = () => {
+const LoginForm = ({setIsAuth}) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +21,8 @@ const LoginForm = () => {
     .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        setIsAuth(true);
+        sessionStorage.setItem("isAuth", true);
         navigate("/")
         console.log(user);
     })

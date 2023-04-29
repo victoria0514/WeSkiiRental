@@ -1,6 +1,10 @@
 import { Input, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import './Styling/ShippingInfo.css';
+import { collection, getDocs,doc,query,where } from "firebase/firestore";
+
+// db
+import {auth,db} from '../firebase';
 
 const ShippingInfo = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +15,36 @@ const ShippingInfo = () => {
     state: sessionStorage.getItem('state') || '',
     zip: sessionStorage.getItem('zip') || '',
   });
+  // const collectionRef = collection(db,"Shipping info")
+  const collectionRef = query(collection(db, "Shipping info"), where("id", "==", auth.currentUser.uid));
+ 
+
+ 
+
+useEffect(() => {
+
+ console.log("in use effect")
+const getShipping = async() =>{
+
+const data = await getDocs(collectionRef);
+
+ 
+ const data1= data.docs.map((doc)=>({ ...doc.data(), id:doc.id
+  })
+ )
+  console.log(data1[0]);
+
+  sessionStorage.setItem("firstName",data1[0].firstName );
+  // sessionStorage.setItem("lastName",data1[0].lastName );
+  // add the session storage for lastname, city ...
+
+}
+
+
+getShipping().catch(console.error);
+
+}, [])
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,7 +52,11 @@ const ShippingInfo = () => {
     sessionStorage.setItem(name, value);
   };
 
+
+
+  console.log("shipping page ")
   return (
+
     <div className='shipping-info'>
       <form>
         <div className='form-row'>

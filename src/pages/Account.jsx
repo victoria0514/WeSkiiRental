@@ -35,6 +35,11 @@ const Account = () => {
     sessionStorage.setItem('state', '');
     sessionStorage.setItem('zip', '');
     navigate('/login');
+    sessionStorage.clear();
+// setIsAuth(false)
+
+
+
   };
 
   const handleLoginClick = () => {
@@ -59,7 +64,7 @@ const Account = () => {
 
   return (
     <div>
-      {isLoggedIn === 'true' ? (
+      {sessionStorage.getItem('isAuth') === 'true' ? (
         <div style={style_outer} className='outerContainer'>
           <div className='changePasswordContainer'>
             <h1>Change Password</h1>

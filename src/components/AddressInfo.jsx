@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Styling/Title.css';
 import { TextField } from '@mui/material';
 import './Styling/AddressInfo.css';
-
+import { useNavigate,Link } from 'react-router-dom';
 const ContactInfo = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -73,6 +73,7 @@ const ContactInfo = () => {
           className='inner'
         />
       </div>
+
     </>
   );
 };
