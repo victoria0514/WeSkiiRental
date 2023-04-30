@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate, Link } from 'react-router-dom';
 
-const AccountInfo = ( {onSubmit}) => {
+const AccountInfo = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
