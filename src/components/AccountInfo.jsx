@@ -6,7 +6,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate, Link } from 'react-router-dom';
 
-const AccountInfo = () => {
+const AccountInfo = ( {onSubmit}) => {
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -29,8 +30,9 @@ const AccountInfo = () => {
         console.log(errorCode, errorMessage);
       });
   };
+
   return (
-    <>
+    <div className='outer-outer'>
       <h3 className='title'>Login Info</h3>
       <div className='outer'>
         <TextField
@@ -50,13 +52,13 @@ const AccountInfo = () => {
           onChange={(e) => setPassword(e.target.value)}
           className='inner'
         />
-      </div>
 
+      </div>
       <Button variant='contained' onClick={onSubmit}>
-        Submit
+        Sign Up
       </Button>
 
-    </>
+    </div>
   );
 };
 
