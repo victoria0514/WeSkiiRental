@@ -39,12 +39,19 @@ export const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
+
+  const clearCart = () => {
+    setCartItems(getDefaultCart());
+  }
+
   const contextValue = {
+    getDefaultCart,
     cartItems,
     addToCart,
     removeFromCart,
     updateItemCartAmount,
-    getTotalCartAmount
+    getTotalCartAmount,
+    clearCart
   };
 
   return (
