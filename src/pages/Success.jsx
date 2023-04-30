@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Success = ({purchaseType, totalAmount}) => {
+const Success = () => {
+  const purchaseType = sessionStorage.getItem('purchaseType');
+  const totalAmount = sessionStorage.getItem('totalAmount');
   return (
-    <div>Success</div>
+    <div>Success, your stuff is here {purchaseType} ${totalAmount} </div>
   )
 }
 

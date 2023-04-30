@@ -8,7 +8,7 @@ import './Styling/Cart.css';
 import PaymentPage from './Payment';
 
 const Cart = () => {
-  const { cartItems, getTotalCartAmount } = useContext(ShopContext);
+  const { clearCart, cartItems, getTotalCartAmount } = useContext(ShopContext);
   const { buyAmount, rentAmount } = getTotalCartAmount();
   const navigate = useNavigate();
 
@@ -22,7 +22,25 @@ const Cart = () => {
     alert(`Your order ID is ${orderID}`);
   };
 
-  const subtTotal = buyAmount;
+  const rentCart = () => {
+    let totalAmount = Math.round(rentAmount * 100) / 100;
+    sessionStorage.setItem('purchaseType', 'Rental');
+    sessionStorage.setItem('totalAmount', totalAmount);
+    clearCart();
+    navigate('/success');
+  };
+
+  const buyCart = () => {
+    let totalAmount = Math.round(buyAmount * 100) / 100;
+    sessionStorage.setItem('purchaseType', 'Purchase');
+    sessionStorage.setItem('totalAmount', totalAmount);
+    clearCart();
+    navigate('/success');
+  } 
+
+
+
+
 
   return (
     <div className='cart'>
@@ -38,16 +56,16 @@ const Cart = () => {
         <div className='not-cart-items'>
           <div className='subtotal'>
             <h1>Checkout:</h1>
-            <Button variant='contained' onClick={handleCheckout}>
-              Buy Gear ${Math.round(buyAmount * 100 ) / 100 }
+            <Button variant='contained' onClick={buyCart}>
+              Buy Gear ${Math.round(buyAmount * 100) / 100}
             </Button>
-            <Button variant='contained' onClick={handleCheckout}>
-              Rent Gear ${Math.round(rentAmount * 100) / 100 }
+            <Button variant='contained' onClick={rentCart}>
+              Rent Gear ${Math.round(rentAmount * 100) / 100}
             </Button>
           </div>
           <div className='checkout'>
             <Button variant='outlined' onClick={handleBackToShop}>
-             ← Back to Shop
+              ← Back to Shop
             </Button>
           </div>
         </div>
