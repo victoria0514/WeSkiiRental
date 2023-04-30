@@ -24,7 +24,7 @@ const Cart = () => {
 
   const rentCart = () => {
     let totalAmount = Math.round(rentAmount * 100) / 100;
-    sessionStorage.setItem('purchaseType', 'Rental');
+    sessionStorage.setItem('purchaseType', 'rent');
     sessionStorage.setItem('totalAmount', totalAmount);
     clearCart();
     navigate('/success');
@@ -32,7 +32,7 @@ const Cart = () => {
 
   const buyCart = () => {
     let totalAmount = Math.round(buyAmount * 100) / 100;
-    sessionStorage.setItem('purchaseType', 'Purchase');
+    sessionStorage.setItem('purchaseType', 'purchase');
     sessionStorage.setItem('totalAmount', totalAmount);
     clearCart();
     navigate('/success');
