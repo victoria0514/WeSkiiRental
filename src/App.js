@@ -5,9 +5,10 @@ import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Account from './pages/Account';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route  } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ShopContextProvider } from './context/ShopContext';
 import NotFound from './pages/NotFound';
+import Success from './pages/Success';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/cart' element={<Cart />} exact />
             <Route path='/account' element={<Account />} exact />
             <Route path='/not-found' element={<NotFound />} exact />
+            <Route path='/Success' element={<Success />} exact />
             <Route path='/' element={<Shop />} exact />
             <Route path='*' element={<NotFound />} />
           </Routes>
