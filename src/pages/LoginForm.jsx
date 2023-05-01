@@ -83,7 +83,7 @@ const LoginForm = () => {
         <h1> We Skii Rental </h1>
         <TextField
           id='outlined-basic'
-          label='Username'
+          label='Email'
           variant='outlined'
           value={username}
           onChange={(e) => {
