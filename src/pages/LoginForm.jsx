@@ -62,7 +62,7 @@ const LoginForm = () => {
       sessionStorage.setItem('city', 'Staten Island');
       sessionStorage.setItem('state', 'New York');
       sessionStorage.setItem('zip', '10314');
-      console.log('Login Successful');
+      sessionStorage.setItem('creditCard', '123124019283')
       navigate('/');
     }
   };
