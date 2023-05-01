@@ -24,6 +24,16 @@ const Account = () => {
     }
   };
 
+
+ 
+  const errorPasswordIncorrect = () => {
+    alert('Password Incorrect');
+  }
+
+  const errorFieldBlank = (field) => {
+    alert(field + ' cannot be blank');
+  }
+
   const handleSignOut = () => {
     sessionStorage.setItem('isLoggedIn', 'false');
     sessionStorage.setItem('password', '');
