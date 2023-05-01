@@ -3,7 +3,7 @@ import './Styling/Signup.css';
 import logo from '../icons/WeSkiiLogo.png';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, TextField } from '@mui/material';
 
 const Signup = () => {

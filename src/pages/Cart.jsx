@@ -5,7 +5,6 @@ import { PRODUCTS } from '../data/Products';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import './Styling/Cart.css';
-import PaymentPage from './Payment';
 
 const Cart = () => {
   const { clearCart, cartItems, getTotalCartAmount } = useContext(ShopContext);
@@ -14,12 +13,6 @@ const Cart = () => {
 
   const handleBackToShop = () => {
     navigate('/');
-  };
-
-  const handleCheckout = () => {
-    let orderID = Math.random() * 100000000;
-    orderID = Math.floor(orderID);
-    alert(`Your order ID is ${orderID}`);
   };
 
   const rentCart = () => {

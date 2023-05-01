@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import './Styling/LoginForm.css';
 import { useNavigate } from 'react-router-dom';
-import ShippingInfo from '../components/ShippingInfo';
 import './Styling/Account.css';
 // import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 // import {auth} from '../firebase';
