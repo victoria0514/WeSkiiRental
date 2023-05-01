@@ -1,11 +1,14 @@
-
-
-.Form-outer {
+.form-wrapper {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 img {
@@ -16,9 +19,35 @@ img {
   align-items: center;
 }
 
-.form-wrapper {
-  margin-top: 20px;
+.outer {
+  width: 300px;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
+
+.inner {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+Button {
+  width: 400px;
+}
+
