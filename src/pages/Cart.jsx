@@ -36,11 +36,12 @@ const Cart = () => {
     sessionStorage.setItem('totalAmount', totalAmount);
     clearCart();
     navigate('/success');
-  } 
+  };
 
-
-
-
+  // Call this with string, "Shipping info, Credit Card, Login etc."
+  const notFoundError = (error) => {
+    alert(error + ' was not found');
+  };
 
   return (
     <div className='cart'>
