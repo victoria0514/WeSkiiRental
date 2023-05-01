@@ -62,7 +62,7 @@ const LoginForm = () => {
       sessionStorage.setItem('city', 'Staten Island');
       sessionStorage.setItem('state', 'New York');
       sessionStorage.setItem('zip', '10314');
-      console.log('Login Successful');
+      sessionStorage.setItem('creditCard', '123124019283')
       navigate('/');
     }
   };
@@ -83,7 +83,7 @@ const LoginForm = () => {
         <h1> We Skii Rental </h1>
         <TextField
           id='outlined-basic'
-          label='Username'
+          label='Email'
           variant='outlined'
           value={username}
           onChange={(e) => {
