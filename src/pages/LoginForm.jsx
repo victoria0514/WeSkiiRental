@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
-import './Styling/LoginForm.css';
-import logo from '../icons/WeSkiiLogo.png';
-import { useNavigate } from 'react-router-dom';
-import {  signInWithEmailAndPassword   } from 'firebase/auth';
-import { auth } from '../firebase';
+import React, { useState } from "react";
+import { TextField, Button } from "@mui/material";
+import "./Styling/LoginForm.css";
+import logo from "../icons/WeSkiiLogo.png";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLoginClick = (e) => {
     // if (username === 'admin' && password === 'admin') {
@@ -18,73 +18,58 @@ const LoginForm = () => {
 
     e.preventDefault();
     signInWithEmailAndPassword(auth, username, password)
-    .then((userCredential) => {
+      .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/")
+        navigate("/");
         console.log(user);
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage)
-    });
+        console.log(errorCode, errorMessage);
+      });
   };
 
   const handleSingupclick = () => {
-    navigate('/signup');
+    navigate("/signup");
   };
-  const onLogin = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, username, password)
-    .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate("/home")
-        console.log(user);
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage)
-    });
-   
-}
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'admin') {
-      sessionStorage.setItem('isLoggedIn', 'true');
-      sessionStorage.setItem('username', 'admin');
-      sessionStorage.setItem('password', 'admin');
-      sessionStorage.setItem('firstName', 'Morris');
-      sessionStorage.setItem('lastName', 'Admin');
-      sessionStorage.setItem('address', 'College of Staten Island');
-      sessionStorage.setItem('city', 'Staten Island');
-      sessionStorage.setItem('state', 'New York');
-      sessionStorage.setItem('zip', '10314');
-      sessionStorage.setItem('creditCard', '123124019283')
-      navigate('/');
+    if (username === "admin" && password === "admin") {
+      sessionStorage.setItem("isLoggedIn", "true");
+      sessionStorage.setItem("username", "admin");
+      sessionStorage.setItem("password", "admin");
+      sessionStorage.setItem("firstName", "Morris");
+      sessionStorage.setItem("lastName", "Admin");
+      sessionStorage.setItem("address", "College of Staten Island");
+      sessionStorage.setItem("city", "Staten Island");
+      sessionStorage.setItem("state", "New York");
+      sessionStorage.setItem("zip", "10314");
+      sessionStorage.setItem("creditCard", "123124019283");
+      navigate("/");
     }
   };
 
   return (
     <div>
-      <div className='LoginForm-Wrapper'>
+      <div className="LoginForm-Wrapper">
         <img
           src={logo}
-          alt='logo'
-          className='logo'
+          alt="logo"
+          className="logo"
           style={{
-            width: '300px',
-            height: '300px',
+            width: "300px",
+            height: "300px",
           }}
         />
 
         <h1> We Skii Rental </h1>
         <TextField
-          id='outlined-basic'
-          label='Email'
-          variant='outlined'
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);
@@ -93,27 +78,27 @@ const LoginForm = () => {
 
         <form onSubmit={handleFormSubmit}>
           <TextField
-            id='outlined-basic'
-            label='Password'
-            variant='outlined'
-            type='password'
+            id="outlined-basic"
+            label="Password"
+            variant="outlined"
+            type="password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            style={{ marginTop: '10px' }}
+            style={{ marginTop: "10px" }}
           />
         </form>
-        <div className='buttons'>
+        <div className="buttons">
           <Button
             style={{
-              width: '125px',
-              marginRight: '12px',
-              marginLeft: '12px',
-              marginTop: '12px',
+              width: "125px",
+              marginRight: "12px",
+              marginLeft: "12px",
+              marginTop: "12px",
             }}
-            size='large'
-            variant='contained'
+            size="large"
+            variant="contained"
             onClick={handleLoginClick}
           >
             Login
@@ -121,13 +106,13 @@ const LoginForm = () => {
 
           <Button
             style={{
-              width: '125px',
-              marginRight: '12px',
-              marginLeft: '12px',
-              marginTop: '12px',
+              width: "125px",
+              marginRight: "12px",
+              marginLeft: "12px",
+              marginTop: "12px",
             }}
-            size='large'
-            variant='contained'
+            size="large"
+            variant="contained"
             onClick={handleSingupclick}
           >
             Sign up

@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import './Styling/Title.css';
-import { Button, TextField } from '@mui/material';
-import './Styling/AccountInfo.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
-import { useNavigate  } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Styling/Title.css";
+import { Button, TextField } from "@mui/material";
+import "./Styling/AccountInfo.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const AccountInfo = () => {
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
@@ -21,7 +20,7 @@ const AccountInfo = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate('/login');
+        navigate("/login");
         // ...
       })
       .catch((error) => {
@@ -32,32 +31,30 @@ const AccountInfo = () => {
   };
 
   return (
-    <div className='outer-outer'>
-      <h3 className='title'>Login Info</h3>
-      <div className='outer'>
+    <div className="outer-outer">
+      <h3 className="title">Login Info</h3>
+      <div className="outer">
         <TextField
-          id='outlined-basic'
-          label='email'
-          variant='outlined'
+          id="outlined-basic"
+          label="email"
+          variant="outlined"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className='inner'
+          className="inner"
         />
         <TextField
-          id='outlined-basic'
-          label='password'
-          variant='outlined'
+          id="outlined-basic"
+          label="password"
+          variant="outlined"
           value={password}
-          type='password'
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
-          className='inner'
+          className="inner"
         />
-
       </div>
-      <Button variant='contained' onClick={onSubmit}>
+      <Button variant="contained" onClick={onSubmit}>
         Sign Up
       </Button>
-
     </div>
   );
 };

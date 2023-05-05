@@ -1,26 +1,22 @@
-import React from 'react';
-import PayPalButton from '../components/PayPalButton';
+import React from "react";
+import PayPalButton from "../components/PayPalButton";
 
 const PaymentPage = () => {
-
   const handlePaymentSuccess = () => {
-    alert('Payment Successful!');
+    alert("Payment Successful!");
     window.location.reload();
   };
 
-  const styler = { 
-  display: 'flex',
-  alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'ror',
-
-  }
+  const styler = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "ror",
+  };
 
   const part = {
-    marginRight: '20px',
-  }
-
-
+    marginRight: "20px",
+  };
 
   return (
     <div style={styler}>
