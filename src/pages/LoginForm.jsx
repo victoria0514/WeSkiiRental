@@ -3,23 +3,55 @@ import { TextField, Button } from '@mui/material';
 import './Styling/LoginForm.css';
 import logo from '../icons/WeSkiiLogo.png';
 import { useNavigate } from 'react-router-dom';
-
-const LoginForm = () => {
+import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import { auth } from '../firebase';
+const LoginForm = ({setIsAuth}) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLoginClick = () => {
-    if (username === 'admin' && password === 'admin') {
-      console.log('Login Successful');
-      navigate('/');
-    }
+  const handleLoginClick = (e) => {
+    // if (username === 'admin' && password === 'admin') {
+    //   console.log('Login Successful');
+    //   navigate('/');
+    // }
+
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, username, password)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        setIsAuth(true);
+        sessionStorage.setItem("isAuth", true);
+        navigate("/")
+        console.log(user);
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+    });
   };
 
   const handleSingupclick = () => {
     navigate('/signup');
   };
-
+  const onLogin = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, username, password)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        navigate("/home")
+        console.log(user);
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+    });
+   
+}
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (username === 'admin' && password === 'admin') {

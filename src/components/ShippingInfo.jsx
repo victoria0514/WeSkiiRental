@@ -1,6 +1,10 @@
 import { Input, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import './Styling/ShippingInfo.css';
+import { collection, getDocs,doc,query,where } from "firebase/firestore";
+
+// db
+import {auth,db} from '../firebase';
 
 const ShippingInfo = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +15,40 @@ const ShippingInfo = () => {
     state: sessionStorage.getItem('state') || '',
     zip: sessionStorage.getItem('zip') || '',
   });
+  // const collectionRef = collection(db,"Shipping info")
+  const collectionRef = query(collection(db, "Shipping info"), where("id", "==", auth.currentUser.uid));
+ 
+
+ 
+
+useEffect(() => {
+
+ console.log("in use effect")
+ const collectionRef = query(collection(db, "Shipping info"), where("id", "==", auth.currentUser.uid));
+const getShipping = async() =>{
+
+const data = await getDocs(collectionRef);
+
+ 
+ const data1= data.docs.map((doc)=>({ ...doc.data(), id:doc.id
+  })
+ )
+  console.log(data1[0]);
+
+  // data
+  sessionStorage.setItem("firstName",data1[0].firstName );
+  sessionStorage.setItem("lastName",data1[0].lastName );
+  sessionStorage.setItem("city",data1[0].city );
+  sessionStorage.setItem("address",data1[0].address );
+  sessionStorage.setItem("state",data1[0].state );
+  sessionStorage.setItem("zip",data1[0].zip );
+}
+
+
+getShipping().catch(console.error);
+
+}, [])
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,7 +56,13 @@ const ShippingInfo = () => {
     sessionStorage.setItem(name, value);
   };
 
+  // constructor(){
+  //   this.userId = firebase.auth().currentUser.uid;
+  // }
+
+  console.log("shipping page ")
   return (
+
     <div className='shipping-info'>
       <form>
         <div className='form-row'>

@@ -3,8 +3,15 @@ import AccountInfo from '../components/AccountInfo';
 import AddressInfo from '../components/AddressInfo';
 import './Styling/Signup.css';
 import logo from '../icons/WeSkiiLogo.png';
-
+import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+import {auth} from '../firebase';
+import { useNavigate,Link } from 'react-router-dom';
 const Signup = () => {
+
+
+
+
+  
   return (
     <>
       <div className='Form-outer'>
@@ -16,7 +23,7 @@ const Signup = () => {
           <AccountInfo />
         </div>
         <div>
-          <AddressInfo />
+          {/* <AddressInfo /> */}
         </div>
       </div>
     </>

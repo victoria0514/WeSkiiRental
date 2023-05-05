@@ -3,6 +3,9 @@ import { TextField, Button } from '@mui/material';
 import './Styling/LoginForm.css';
 import { useNavigate } from 'react-router-dom';
 import ShippingInfo from '../components/ShippingInfo';
+// import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+// import {auth} from '../firebase';
+
 
 const Account = () => {
   const navigate = useNavigate();
@@ -32,6 +35,11 @@ const Account = () => {
     sessionStorage.setItem('state', '');
     sessionStorage.setItem('zip', '');
     navigate('/login');
+    sessionStorage.clear();
+// setIsAuth(false)
+
+
+
   };
 
   const handleLoginClick = () => {
@@ -56,7 +64,7 @@ const Account = () => {
 
   return (
     <div>
-      {isLoggedIn === 'true' ? (
+      {sessionStorage.getItem('isAuth') === 'true' ? (
         <div style={style_outer} className='outerContainer'>
           <div className='changePasswordContainer'>
             <h1>Change Password</h1>
