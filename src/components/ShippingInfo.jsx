@@ -24,6 +24,7 @@ const ShippingInfo = () => {
 useEffect(() => {
 
  console.log("in use effect")
+ const collectionRef = query(collection(db, "Shipping info"), where("id", "==", auth.currentUser.uid));
 const getShipping = async() =>{
 
 const data = await getDocs(collectionRef);
@@ -34,10 +35,13 @@ const data = await getDocs(collectionRef);
  )
   console.log(data1[0]);
 
+  // data
   sessionStorage.setItem("firstName",data1[0].firstName );
-  // sessionStorage.setItem("lastName",data1[0].lastName );
-  // add the session storage for lastname, city ...
-
+  sessionStorage.setItem("lastName",data1[0].lastName );
+  sessionStorage.setItem("city",data1[0].city );
+  sessionStorage.setItem("address",data1[0].address );
+  sessionStorage.setItem("state",data1[0].state );
+  sessionStorage.setItem("zip",data1[0].zip );
 }
 
 
@@ -52,7 +56,9 @@ getShipping().catch(console.error);
     sessionStorage.setItem(name, value);
   };
 
-
+  // constructor(){
+  //   this.userId = firebase.auth().currentUser.uid;
+  // }
 
   console.log("shipping page ")
   return (

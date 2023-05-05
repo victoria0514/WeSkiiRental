@@ -41,8 +41,7 @@ const AccountInfo = () => {
 
 // ADD HERE
      await addDoc(collectionRef,{
-        firstName: firstName, lastName:lastName,
-        // the rest go here
+        firstName: firstName, lastName:lastName, address:address, city:city, state:state, zip:zip,
         email:auth.currentUser.email, id:auth.currentUser.uid
       }
 
