@@ -23,6 +23,11 @@ const LoginForm = () => {
         const user = userCredential.user;
         navigate("/");
         console.log(user);
+
+        sessionStorage.setItem("isLoggedIn", "true");
+        sessionStorage.setItem("username", user.email);
+        sessionStorage.setItem("password", password);
+        // Get rest of information and store it here
       })
       .catch((error) => {
         const errorCode = error.code;
