@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
-import './Styling/LoginForm.css';
-import logo from '../icons/WeSkiiLogo.png';
-import { useNavigate } from 'react-router-dom';
-import {  signInWithEmailAndPassword   } from 'firebase/auth';
-import { auth } from '../firebase';
-const LoginForm = ({setIsAuth}) => {
+import React, { useState } from "react";
+import { TextField, Button } from "@mui/material";
+import "./Styling/LoginForm.css";
+import logo from "../icons/WeSkiiLogo.png";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+const LoginForm = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,9 +21,7 @@ const LoginForm = ({setIsAuth}) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setIsAuth(true);
-        sessionStorage.setItem("isAuth", true);
-        navigate("/")
+        navigate("/");
         console.log(user);
 
         sessionStorage.setItem("isLoggedIn", "true");
