@@ -1,13 +1,9 @@
-import React from 'react';
-import './Styling/Shop.css';
-import { Product } from '../components/Product';
-import { PRODUCTS } from '../data/Products';
-import {auth,db} from '../firebase';
+import React from "react";
+import "./Styling/Shop.css";
+import { Product } from "../components/Product";
+import { PRODUCTS } from "../data/Products";
+
 const Shop = () => {
-
-  console.log(sessionStorage.getItem('isAuth'));
-  console.log(auth.currentUser) 
-
   return (
     <div className="shop">
       <div className="shop-title">
