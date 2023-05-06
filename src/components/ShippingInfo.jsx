@@ -62,8 +62,9 @@ getShipping().catch(console.error);
 
   console.log("shipping page ")
   return (
-
+ 
     <div className='shipping-info'>
+     
       <form>
         <div className="form-row">
           <div className="form-col">
