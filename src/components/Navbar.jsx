@@ -42,16 +42,16 @@ const navigate = useNavigate()
 
   return (
     <>
-      <div className="navbar">
-        <div className="info">
+      <div className='navbar'>
+        <div className='info'>
           <h2>Fantastic⁴ Store</h2>
         </div>
 
-        <div className="links">
-          <Link to="/Account"> Account </Link>
-          <Link to="/"> Shop </Link>
-          <Link to="/Cart">
-            <ShoppingCart size={24} weight="fill" color="white" />
+        <div className='links'>
+          <Link to='/Account'> Account </Link>
+          <Link to='/'> Shop </Link>
+          <Link to='/Cart'>
+            <ShoppingCart size={24} weight='fill' color='white' />
           </Link>
           {!isAuth ? <Link to= "/login"></Link> : <button onClick={signOut}> Log out</button>}
 
