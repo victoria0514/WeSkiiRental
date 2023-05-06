@@ -1,5 +1,5 @@
-import React from 'react';
-import logo from '../assets/image.png';
+import React from "react";
+import logo from "../assets/image.png";
 
 const PayPalButton = ({ onSuccess }) => {
   const handleButtonClick = () => {
@@ -9,11 +9,10 @@ const PayPalButton = ({ onSuccess }) => {
   return (
     <img
       src={logo}
-      alt='Pay with PayPal'
+      alt="Pay with PayPal"
       onClick={handleButtonClick}
-      style={{ cursor: 'pointer', width: '132px', height: '26px' }}
+      style={{ cursor: "pointer", width: "132px", height: "26px" }}
     />
-
   );
 };
 

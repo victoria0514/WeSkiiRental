@@ -17,6 +17,7 @@ const AccountInfo = () => {
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   const navigate = useNavigate();
+
   const onSubmit = async (e) => {
     // e.preventDefault()
     const collectionRef = collection(db,"Shipping info")
@@ -25,18 +26,18 @@ const AccountInfo = () => {
     console.log(password);
     await createUserWithEmailAndPassword(auth, username, password)
       .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          // navigate("/login")
-          // ...
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/login");
+        // ...
       })
       .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
       });
+  };
 
 
 // ADD HERE
@@ -63,29 +64,28 @@ const AccountInfo = () => {
       <h3 className='title'>Login Info</h3>
       <div className='outer'>
         <TextField
-          id='outlined-basic'
-          label='email'
-          variant='outlined'
+          id="outlined-basic"
+          label="email"
+          variant="outlined"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className='inner'
+          className="inner"
         />
         <TextField
-          id='outlined-basic'
-          label='password'
-          variant='outlined'
+          id="outlined-basic"
+          label="password"
+          variant="outlined"
           value={password}
-          type='password'
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
-          className='inner'
+          className="inner"
         />
       </div>
 
 
   
        
-   { console.log(username)}
-    {console.log(password)}
+   
     <h3 className='title'> Shipping Info </h3>
 
 <div className='outer'>

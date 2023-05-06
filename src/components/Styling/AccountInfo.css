@@ -13,3 +13,12 @@
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.outer-outer{
+  display: flex;
+  flex-direction: column;
+}
+
+.outer-outer Button {
+  margin-top: 100px;
+}

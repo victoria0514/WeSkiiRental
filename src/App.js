@@ -69,6 +69,7 @@ setIsAuth(false)
             <Route path='/cart' element={<Cart />} exact />
             <Route path='/account' element={<Account />} exact />
             <Route path='/not-found' element={<NotFound />} exact />
+            {/* <Route path='/success' element={<Success />} exact /> */}
             <Route path='/' element={<Shop />} exact />
             <Route path='*' element={<NotFound />} />
           </Routes>
